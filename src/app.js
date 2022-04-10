@@ -73,16 +73,17 @@ function viewNote(evt){
       const body = item.noteBody
       viewingArea.innerHTML = `<button id=close-view>close</button><p>${body}</p>`
       const closeView = document.getElementById("close-view")
-      closeView.addEventListener("click", (evt) =>  {
+      closeView.addEventListener("click", () =>  {
         closeNoteView()
-        console.log("hi")
       })
     }
   }
   
 }
 
-function (startPage)
+function startPage() {
+  displayNotes()
+}
 
 btn.addEventListener("click", () => {
   if (noteArea.innerHTML.length <= 11){
