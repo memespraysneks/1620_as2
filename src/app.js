@@ -17,7 +17,6 @@ function getNoteText(){
 
 function getNoteTitle(){
   const noteText = getNoteText()
-  console.log((noteText.split("\n"))[0])
   return (noteText.split("\n"))[0]
 }
 
@@ -26,7 +25,7 @@ function saveNote() {
 }
 
 function newNote() {
-  noteArea.innerHTML = "<textarea rows='20' cols='40' id='note'></textarea><button id=save>save</button><button id=delete>delete</button>"
+  noteArea.innerHTML = "<textarea rows='20' cols='40' placeholder='Start writing here' id='note'></textarea><button id=save>save</button><button id=delete>delete</button>"
 }
 
 function clearNote(){
@@ -34,6 +33,10 @@ function clearNote(){
   clearButton.addEventListener("click", newNote())
 }
 
-btn.addEventListener("click", newNote())
+btn.addEventListener("click", (evt) => {
+  if (noteArea.innerHTML.length == 11){
+    newNote()
+  }
+})
 
 
