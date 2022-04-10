@@ -44,10 +44,12 @@ function resetNote(){
 
 function saveNote() {
   const saveButton = document.getElementById("save")
-  saveButton.addEventListener("click", (evt) => {
+  saveButton.addEventListener("click", () => {
     const titleAndBody = getNoteTitleAndBody()
-    notes.push({title: titleAndBody[0], noteBody: titleAndBody[1], id: notes.length+1})
-    displayNotes()
+    if (titleAndBody[0] != ""){
+      notes.push({title: titleAndBody[0], noteBody: titleAndBody[1], id: notes.length+1})
+      displayNotes()
+    }
     resetNote()
   })
 }
