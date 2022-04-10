@@ -29,9 +29,12 @@ function displayNotes(){
   noteList.innerHTML = ""
   for (const note of notes){
     const li = document.createElement("li")
+    li.className = "saved-note"
     li.appendChild(document.createTextNode(note.title))
     noteList.appendChild(li)
   }
+  const allNotes = document.querySelectorAll(".saved-note")
+  allNotes.addEventListener("click",)
 }
 
 function resetNote(){
@@ -55,6 +58,17 @@ function newNote() {
 function clearNote(){
   const clearButton = document.getElementById("delete")
   clearButton.addEventListener("click", resetNote)
+}
+
+function viewNote(noteTitle){
+  const viewingArea = document.querySelector(".read-note-area")
+  for (const note in noteList) {
+    if (note.title == noteTitle) {
+      const noteToView = note
+      break
+    }
+  }
+  viewingArea.innerHTML = `<p>${noteToView.noteBody}</p><button>x</button>`
 }
 
 btn.addEventListener("click", (evt) => {
