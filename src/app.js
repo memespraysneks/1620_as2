@@ -24,6 +24,16 @@ function getNoteTitleAndBody(){
   return titleAndBody
 }
 
+function displayNotes(){
+  const noteList = document.querySelector(".notes-list")
+  noteList.innerHTML = ""
+  for (const note of notes){
+    const li = document.createElement("li")
+    li.appendChild(document.createTextNode(note.title))
+    noteList.appendChild(li)
+  }
+}
+
 function resetNote(){
   noteArea.innerHTML = ""
 }
@@ -33,6 +43,7 @@ function saveNote() {
   saveButton.addEventListener("click", (evt) => {
     const titleAndBody = getNoteTitleAndBody()
     notes.push({title: titleAndBody[0], noteBody: titleAndBody[1], id: notes.length+1})
+    displayNotes()
     resetNote()
   })
 }
