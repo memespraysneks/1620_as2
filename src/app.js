@@ -17,7 +17,12 @@ function getNoteText(){
 
 function getNoteTitle(){
   const noteText = getNoteText()
+  console.log((noteText.split("\n"))[0])
   return (noteText.split("\n"))[0]
+}
+
+function resetNote(){
+  noteArea.innerHTML = ""
 }
 
 function saveNote() {
@@ -30,12 +35,13 @@ function newNote() {
 
 function clearNote(){
   const clearButton = document.getElementById("delete")
-  clearButton.addEventListener("click", newNote())
+  clearButton.addEventListener("click", resetNote)
 }
 
 btn.addEventListener("click", (evt) => {
-  if (noteArea.innerHTML.length == 11){
+  if (noteArea.innerHTML.length <= 11){
     newNote()
+    clearNote()
   }
 })
 
