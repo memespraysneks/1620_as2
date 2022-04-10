@@ -32,7 +32,8 @@ function saveNote() {
   const saveButton = document.getElementById("save")
   saveButton.addEventListener("click", (evt) => {
     const titleAndBody = getNoteTitleAndBody()
-    console.log(titleAndBody)
+    notes.push({title: titleAndBody[0], noteBody: titleAndBody[1], id: notes.length+1})
+    resetNote()
   })
 }
 
