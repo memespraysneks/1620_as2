@@ -1,5 +1,6 @@
 const noteArea = document.querySelector(".write-note-area")
 const btn = document.querySelector(".icons")
+let checked = false
 
 const notes = [
   { 
@@ -83,8 +84,24 @@ function viewNote(evt){
   
 }
 
+function darkMode() {
+  const darkButton = document.querySelector(".theme-toggle")
+  darkButton.addEventListener("click", () => {
+    console.log(darkButton.checked)
+    const container = document.querySelector(".main-container")
+    if (checked == false) {
+      container.classList.replace("light-theme", "dark-theme")
+      checked = true
+    } else {
+      container.classList.replace("dark-theme", "light-theme")
+      checked = false
+    }
+  })
+}
+
 function startPage() {
   displayNotes()
+  darkMode()
 }
 
 btn.addEventListener("click", () => {
