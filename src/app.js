@@ -1,3 +1,6 @@
+const noteArea = document.querySelector(".write-note-area")
+const btn = document.querySelector(".icons")
+
 const notes = [
   { 
     title: "first note", 
@@ -13,13 +16,24 @@ function getNoteText(){
 }
 
 function getNoteTitle(){
-  const noteText = getNoteText
+  const noteText = getNoteText()
+  console.log((noteText.split("\n"))[0])
   return (noteText.split("\n"))[0]
 }
 
-const noteArea = document.querySelector(".write-note-area")
-const btn = document.querySelector(".icons")
-btn.addEventListener("click", (evt) => {
+function saveNote() {
+
+}
+
+function newNote() {
   noteArea.innerHTML = "<textarea rows='20' cols='40' id='note'></textarea><button id=save>save</button><button id=delete>delete</button>"
-})
+}
+
+function clearNote(){
+  const clearButton = document.getElementById("delete")
+  clearButton.addEventListener("click", newNote())
+}
+
+btn.addEventListener("click", newNote())
+
 
