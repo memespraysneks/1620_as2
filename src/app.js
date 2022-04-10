@@ -63,14 +63,13 @@ function clearNote(){
 
 function viewNote(evt){
   const viewingArea = document.querySelector(".read-note-area")
-  for (const item in notes) {
+  for (const item of notes) {
     if (evt.currentTarget.innerHTML == item.title) {
       const body = item.noteBody
+      viewingArea.innerHTML = `<button>close</button><p>${body}</p>`
     }
-
-
   }
-  viewingArea.innerHTML = `<button>close</button><p>${body}</p>`
+  
 }
 
 btn.addEventListener("click", (evt) => {
