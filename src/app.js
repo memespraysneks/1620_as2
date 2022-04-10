@@ -33,7 +33,7 @@ function displayNotes(){
     li.appendChild(document.createTextNode(note.title))
     noteList.appendChild(li)
   }
-  const allNotes = document.querySelectorAll(".saved-note").forEach((item) => {
+  document.querySelectorAll(".saved-note").forEach((item) => {
     item.addEventListener("click", viewNote)
   })
 }
@@ -61,18 +61,30 @@ function clearNote(){
   clearButton.addEventListener("click", resetNote)
 }
 
+function closeNoteView() {
+  const viewingArea = document.querySelector(".read-note-area")
+  viewingArea.innerHTML = ""
+}
+
 function viewNote(evt){
   const viewingArea = document.querySelector(".read-note-area")
   for (const item of notes) {
     if (evt.currentTarget.innerHTML == item.title) {
       const body = item.noteBody
-      viewingArea.innerHTML = `<button>close</button><p>${body}</p>`
+      viewingArea.innerHTML = `<button id=close-view>close</button><p>${body}</p>`
+      const closeView = document.getElementById("close-view")
+      closeView.addEventListener("click", (evt) =>  {
+        closeNoteView()
+        console.log("hi")
+      })
     }
   }
   
 }
 
-btn.addEventListener("click", (evt) => {
+function (startPage)
+
+btn.addEventListener("click", () => {
   if (noteArea.innerHTML.length <= 11){
     newNote()
     clearNote()
@@ -80,4 +92,5 @@ btn.addEventListener("click", (evt) => {
   }
 })
 
+startPage()
 
