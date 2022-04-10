@@ -16,9 +16,11 @@ function getNoteText(){
 }
 
 function getNoteTitle(){
-  const noteText = getNoteText()
-  console.log((noteText.split("\n"))[0])
-  return (noteText.split("\n"))[0]
+  const noteText = getNoteText().split("\n")
+  const title = noteText[0]
+  const body = noteText.shift().join("\n")
+  const titleAndBody = [title, body]
+  return titleAndBody
 }
 
 function resetNote(){
@@ -26,7 +28,10 @@ function resetNote(){
 }
 
 function saveNote() {
-
+  const saveButton = document.getElementById("save")
+  saveButton.addEventListener("click", (evt) => {
+    const titleAndBody = getNoteTitle()
+  })
 }
 
 function newNote() {
@@ -42,6 +47,7 @@ btn.addEventListener("click", (evt) => {
   if (noteArea.innerHTML.length <= 11){
     newNote()
     clearNote()
+    saveNote()
   }
 })
 
