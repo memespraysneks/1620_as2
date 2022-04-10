@@ -10,16 +10,17 @@ const notes = [
 ]
 
 function getNoteText(){
-  const noteObject = document.getElementsById("note")
+  const noteObject = document.getElementById("note")
   const note = noteObject.value
   return note
 }
 
-function getNoteTitle(){
+function getNoteTitleAndBody(){
   const noteText = getNoteText().split("\n")
   const title = noteText[0]
-  const body = noteText.shift().join("\n")
-  const titleAndBody = [title, body]
+  const body = noteText.splice(1)
+  const bodyFinal = body.join("\n")
+  const titleAndBody = [title, bodyFinal]
   return titleAndBody
 }
 
@@ -30,7 +31,8 @@ function resetNote(){
 function saveNote() {
   const saveButton = document.getElementById("save")
   saveButton.addEventListener("click", (evt) => {
-    const titleAndBody = getNoteTitle()
+    const titleAndBody = getNoteTitleAndBody()
+    console.log(titleAndBody)
   })
 }
 
