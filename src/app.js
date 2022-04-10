@@ -33,8 +33,9 @@ function displayNotes(){
     li.appendChild(document.createTextNode(note.title))
     noteList.appendChild(li)
   }
-  const allNotes = document.querySelectorAll(".saved-note")
-  allNotes.addEventListener("click",)
+  const allNotes = document.querySelectorAll(".saved-note").forEach((item) => {
+    item.addEventListener("click", viewNote)
+  })
 }
 
 function resetNote(){
@@ -62,7 +63,7 @@ function clearNote(){
 
 function viewNote(noteTitle){
   const viewingArea = document.querySelector(".read-note-area")
-  for (const note in noteList) {
+  for (const note in notes) {
     if (note.title == noteTitle) {
       const noteToView = note
       break
