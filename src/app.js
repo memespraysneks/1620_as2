@@ -78,8 +78,8 @@ function viewNote(evt){
   const closeView = document.getElementById("close-view")
   closeView.addEventListener("click", () =>  {
   closeNoteView()
-    })
-  }
+  })
+}
 
   
 
